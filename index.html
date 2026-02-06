@@ -17,13 +17,13 @@
     
     .container { max-width: 800px; margin: -60px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
     
-    /* --- CSS 插圖設定 --- */
+    /* --- CSS 插圖設定 (Day 4 仍保留) --- */
     .css-illustration {
         height: 200px; width: 100%; display: flex; justify-content: center; align-items: center;
         font-size: 100px; position: relative; overflow: hidden;
     }
     
-    /* --- 真實照片容器設定 (Day 1) --- */
+    /* --- 真實照片容器設定 --- */
     .real-photo-container {
         height: 300px; 
         width: 100%;
@@ -35,13 +35,15 @@
         width: 100%;
         height: 100%;
         object-fit: cover; 
-        object-position: center bottom;
+        object-position: center center; /* 讓照片居中顯示 */
+        transition: transform 0.5s ease;
+    }
+    .real-photo-container:hover img {
+        transform: scale(1.05); /* 滑鼠移過去會有微微放大的質感效果 */
     }
 
     /* 背景色設定 */
     .header-bg { background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; position: relative; }
-    .day2-ill { background: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
-    .day3-ill { background: linear-gradient(to top, #96fbc4 0%, #f9f586 100%); }
     .day4-ill { background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); }
     
     /* 其他樣式 */
@@ -54,7 +56,7 @@
     .day-badge { background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 10px; }
     .transport { display: inline-block; background: #E8F5E9; color: var(--secondary); padding: 3px 10px; border-radius: 10px; font-size: 0.85rem; margin-right: 5px; font-weight: bold; }
     
-    /* --- 導航按鈕 (已修正連結與點擊層級) --- */
+    /* --- 導航按鈕 --- */
     .nav-btn { 
         display: inline-flex; align-items: center; 
         background: #E3F2FD; color: #42A5F5; 
@@ -93,7 +95,7 @@
     <div class="deco-circle" style="width: 100px; height: 100px; top: 20px; left: 20px;"></div>
     <div class="deco-circle" style="width: 150px; height: 150px; bottom: -30px; right: -30px;"></div>
     <h1>🐻 熊本質感慢旅</h1>
-    <p>古城・庭園・極致美食 4 日遊</p>
+    <p>古城・庭園・清爽美食 4 日遊</p>
 </header>
 
 <div class="container">
@@ -120,7 +122,7 @@
                 <div class="content">
                     <span class="place-name">KOKO HOTEL Premier 辦理入住</span>
                     <span class="transport">位置</span> 櫻町商場樓上 (巴士下車直達)
-                    <br><span style="font-size: 0.9em; color: #666;">就是照片這棟建築，超方便！</span>
+                    <br><span style="font-size: 0.9em; color: #666;">就是照片這棟，超方便！</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=KOKO+HOTEL+Premier+Kumamoto" target="_blank" class="nav-btn">📍 導航</a>
                 </div>
             </div>
@@ -135,27 +137,26 @@
             </div>
 
             <div class="food-section">
-                <span class="food-title">晚餐推薦 (櫻町商場內)</span>
+                <span class="food-title">晚餐推薦 (櫻町商場)</span>
                 <div class="food-item">
-                    <strong>1. 菅乃屋 (馬肉/熟食)</strong> <span class="transport">櫻町 B1</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Sugunoya+Sakuramachi+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                    <strong>1. 天草牛深丸 (迴轉壽司)</strong> <span class="transport">櫻町 B1</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Amakusa+Ushibukamaru+Sakuramachi" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>2. 敘敘苑 (燒肉)</strong> <span class="transport">櫻町 3F</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Jojoen+Sakuramachi+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                    <strong>2. 杵屋 (手打烏龍麵)</strong> <span class="transport">櫻町 3F</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kineya+Sakuramachi+Kumamoto" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>3. 利久牛舌 (定食)</strong> <span class="transport">櫻町 3F</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Rikyu+Gyutan+Sakuramachi+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                    <strong>3. 敘敘苑 (燒肉)</strong> <span class="transport">櫻町 3F</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jojoen+Sakuramachi" target="_blank" class="nav-btn">導航</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="css-illustration day2-ill">
-            🏯🌸
-            <div class="deco-circle" style="width: 120px; height: 120px; bottom: -20px; left: -20px;"></div>
+        <div class="real-photo-container">
+            <img src="images/castle.jpg" alt="Kumamoto Castle">
         </div>
         <div class="card-body">
             <span class="day-badge">Day 2</span>
@@ -175,19 +176,19 @@
                 <div class="content">
                     <span class="place-name">加藤神社</span>
                     <span class="transport">步行</span> 位於城內
-                    <a href="https://www.google.com/maps/search/?api=1&query=Kato+Shrine+Kumamoto" target="_blank" class="nav-btn">📍 導航</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kato+Shrine" target="_blank" class="nav-btn">📍 導航</a>
                 </div>
             </div>
 
             <div class="food-section">
-                <span class="food-title">午餐推薦 (櫻之馬場 城彩苑)</span>
+                <span class="food-title">午餐推薦 (城彩苑)</span>
                 <div class="food-item">
-                    <strong>1. 山見茶屋 (阿蘇紅牛丼)</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Yamami+Chaya+Josaien" target="_blank" class="nav-btn">導航</a>
+                    <strong>1. 天草海鮮藏 (海鮮丼)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Amakusa+Kaisenzou+Josaien" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>2. 櫻道 (精緻定食)</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Sakuramichi+Josaien" target="_blank" class="nav-btn">導航</a>
+                    <strong>2. 櫻道 (和風定食)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sakuranamiki+Josaien" target="_blank" class="nav-btn">導航</a>
                 </div>
             </div>
 
@@ -219,27 +220,26 @@
             </div>
 
             <div class="food-section">
-                <span class="food-title">晚餐推薦 (新市街/下通)</span>
+                <span class="food-title">晚餐推薦 (市中心)</span>
                 <div class="food-item">
-                    <strong>1. 勝烈亭豬排</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Katsuretsu+Tei+Shinshigai" target="_blank" class="nav-btn">導航</a>
+                    <strong>1. 紅蘭亭 (太平燕)</strong> 
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kourantei+Shimotori" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>2. 紅蘭亭 (太平燕)</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Kourantei+Shimotori" target="_blank" class="nav-btn">導航</a>
+                    <strong>2. 壽司三味 (壽司)</strong> 
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sushizanmai+Kumamoto" target="_blank" class="nav-btn">導航</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="css-illustration day3-ill">
-            🍵🌳
-            <div class="deco-circle" style="width: 100px; height: 100px; top: -10px; left: 30px;"></div>
+        <div class="real-photo-container">
+            <img src="images/museum.jpg" alt="Contemporary Art Museum Kumamoto">
         </div>
         <div class="card-body">
             <span class="day-badge">Day 3</span>
-            <h2>絕美庭園與市區散策</h2>
+            <h2>絕美庭園與藝術散策</h2>
 
             <div class="timeline-item">
                 <div class="time">10:30</div>
@@ -251,14 +251,14 @@
             </div>
 
             <div class="food-section">
-                <span class="food-title">午餐推薦</span>
+                <span class="food-title">午餐推薦 (庭園旁)</span>
                 <div class="food-item">
-                    <strong>1. 水前寺 泉里</strong> 
+                    <strong>1. 水前寺 泉里</strong>
                     <a href="https://www.google.com/maps/search/?api=1&query=Suizenji+Izumi" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>2. 壽司三味</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Sushizanmai+Shimotori+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                    <strong>2. 羅生門 (居酒屋午餐)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rashomon+Suizenji" target="_blank" class="nav-btn">導航</a>
                 </div>
             </div>
 
@@ -276,18 +276,19 @@
                 <div class="content">
                     <span class="place-name">熊本市現代美術館 (CAMK)</span>
                     <span class="transport">🚊 市電</span> 通町筋站
+                    <br><span style="font-size: 0.9em; color: #666;">建築優美，就是照片這裡！</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=Contemporary+Art+Museum+Kumamoto" target="_blank" class="nav-btn">📍 導航</a>
                 </div>
             </div>
 
             <div class="food-section">
-                <span class="food-title">晚餐推薦</span>
+                <span class="food-title">晚餐推薦 (鄉土料理)</span>
                 <div class="food-item">
-                    <strong>1. 燒肉 須藤</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Yakiniku+Sudou+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                    <strong>1. 青柳 (鄉土料理)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Aoyagi+Kumamoto" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>2. 肥後之陣屋</strong> 
+                    <strong>2. 肥後之陣屋</strong>
                     <a href="https://www.google.com/maps/search/?api=1&query=Higo+no+Jinya" target="_blank" class="nav-btn">導航</a>
                 </div>
             </div>
@@ -315,12 +316,12 @@
             <div class="food-section">
                 <span class="food-title">最後午餐 (櫻町商場)</span>
                 <div class="food-item">
-                    <strong>1. 五穀 (健康定食)</strong> 
+                    <strong>1. 五穀 (健康定食)</strong>
                     <a href="https://www.google.com/maps/search/?api=1&query=Gokoku+Sakuramachi+Kumamoto" target="_blank" class="nav-btn">導航</a>
                 </div>
                 <div class="food-item">
-                    <strong>2. 博多一風堂</strong> 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Ippudo+Sakuramachi+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                    <strong>2. 築地壽司清</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Tsukiji+Sushisay+Sakuramachi" target="_blank" class="nav-btn">導航</a>
                 </div>
             </div>
 
