@@ -17,7 +17,7 @@
     
     .container { max-width: 800px; margin: -60px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
     
-    /* --- CSS 插圖設定 (Day 4 仍保留) --- */
+    /* --- CSS 插圖設定 (Day 4) --- */
     .css-illustration {
         height: 200px; width: 100%; display: flex; justify-content: center; align-items: center;
         font-size: 100px; position: relative; overflow: hidden;
@@ -35,11 +35,11 @@
         width: 100%;
         height: 100%;
         object-fit: cover; 
-        object-position: center center; /* 讓照片居中顯示 */
+        object-position: center center;
         transition: transform 0.5s ease;
     }
     .real-photo-container:hover img {
-        transform: scale(1.05); /* 滑鼠移過去會有微微放大的質感效果 */
+        transform: scale(1.05); /* 滑鼠移過去放大效果 */
     }
 
     /* 背景色設定 */
@@ -77,8 +77,10 @@
     .food-title { color: #F9A825; font-weight: bold; margin-bottom: 12px; display: block; font-size: 1.05rem; }
     .food-item { margin-bottom: 12px; border-bottom: 2px dashed #eee; padding-bottom: 8px; }
     .food-item:last-child { border: none; padding-bottom: 0; }
-    .map-container { text-align: center; padding: 30px; background: white; border-radius: 24px; margin-top: 30px; border: 3px solid #eee; }
-    .map-placeholder { height: 200px; background: #e0f7fa; border-radius: 15px; display: flex; justify-content: center; align-items: center; font-size: 80px; color: #4dd0e1; border: 3px dashed #b2ebf2; }
+    
+    /* Map Section Update */
+    .map-container { text-align: center; padding: 20px; background: white; border-radius: 24px; margin-top: 30px; border: 3px solid #eee; }
+    .tram-map-img { width: 100%; height: auto; border-radius: 15px; border: 1px solid #ddd; }
 
     @media (max-width: 600px) {
         header { height: 280px; } header h1 { font-size: 2rem; }
@@ -338,8 +340,8 @@
 
     <div class="map-container">
         <h2>🗺️ 熊本市電路線圖</h2>
-        <div class="map-placeholder">🚋💨</div>
-        <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">(可愛示意圖)</p>
+        <p style="margin-bottom: 10px; color: #666;">長輩移動主要靠這兩條線 (紅線 A / 藍線 B)</p>
+        <img src="images/bus.jpg" alt="熊本市電路線圖" class="tram-map-img">
     </div>
 
 </div>
