@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熊本質感慢旅 4 日遊</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #FF8A80; /* 可愛粉紅 */
+        --secondary: #81C784; /* 清新草綠 */
+        --accent: #FFD54F; /* 溫暖鵝黃 */
+        --bg: #FFF8F0; /* 暖色背景 */
+        --text: #5D4037; /* 深咖啡色文字 */
+    }
+    body { font-family: 'Zen Maru Gothic', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.7; }
+    
+    .container { max-width: 800px; margin: -60px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
+    
+    /* --- 可愛插圖區塊 --- */
+    .css-illustration {
+        height: 200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px; 
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* --- 真實照片樣式 (Day 1 專用) --- */
+    .real-photo-container {
+        height: 250px; /* 照片區塊高度 */
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .real-photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 確保照片填滿且不變形 */
+    }
+
+    /* Header 背景 */
+    .header-bg {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        height: 350px;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        color: white; text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    /* 插圖背景色 */
+    .day2-ill { background: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
+    .day3-ill { background: linear-gradient(to top, #96fbc4 0%, #f9f586 100%); }
+    .day4-ill { background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); }
+    
+    /* 裝飾圓點 */
+    .deco-circle { position: absolute; border-radius: 50%; opacity: 0.2; background: white; }
+
+    /* --- 其他樣式 --- */
+    header h1 { font-size: 2.5rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+    header p { font-size: 1.2rem; margin-top: 10px; font-weight: bold; }
+
+    .card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.05); margin-bottom: 35px; border: 3px solid #FFF; }
+    .card-body { padding: 25px; }
+
+    h2 { color: var(--primary); margin-top: 0; font-size: 1.5rem; border-bottom: 3px dotted var(--primary); padding-bottom: 10px; }
+    
+    .day-badge { background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 10px; box-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
+    
+    .transport { display: inline-block; background: #E8F5E9; color: var(--secondary); padding: 3px 10px; border-radius: 10px; font-size: 0.85rem; margin-right: 5px; font-weight: bold; }
+    
+    .nav-btn {
+        display: inline-flex; align-items: center;
+        background: #E3F2FD; color: #42A5F5;
+        text-decoration: none; padding: 5px 15px; border-radius: 25px;
+        font-size: 0.85rem; font-weight: bold; margin-left: 5px;
+        border: 2px solid #BBDEFB; transition: all 0.2s;
+    }
+    .nav-btn:hover { background: #42A5F5; color: white; border-color: #42A5F5; }
+
+    .timeline-item { display: flex; margin-bottom: 25px; border-left: 4px dotted #eee; padding-left: 15px; margin-left: 10px; }
+    .time { font-weight: bold; color: #888; min-width: 65px; font-size: 1.1rem; }
+    .content { flex: 1; }
+    .place-name { font-weight: bold; font-size: 1.15rem; color: var(--text); display: block; margin-bottom: 5px; }
+
+    .airport-box { background: #E0F7FA; border: 3px dashed #4DD0E1; border-radius: 15px; padding: 15px; margin-bottom: 20px; display: flex; align-items: center; }
+    .airport-icon { font-size: 2.2rem; margin-right: 15px; }
+
+    .food-section { background: #FFFDE7; border-radius: 15px; padding: 20px; margin-top: 20px; position: relative; border: 3px solid #FFF59D; }
+    .food-section::before { content: '🍴'; position: absolute; top: -15px; left: 20px; font-size: 24px; background: #FFFDE7; padding: 0 5px; }
+    .food-title { color: #F9A825; font-weight: bold; margin-bottom: 12px; display: block; font-size: 1.05rem; }
+    .food-item { margin-bottom: 12px; border-bottom: 2px dashed #eee; padding-bottom: 8px; }
+    .food-item:last-child { border: none; padding-bottom: 0; }
+
+    .map-container { text-align: center; padding: 30px; background: white; border-radius: 24px; margin-top: 30px; border: 3px solid #eee; }
+    .map-placeholder {
+        height: 200px; background: #e0f7fa; border-radius: 15px; display: flex; justify-content: center; align-items: center; font-size: 80px; color: #4dd0e1; border: 3px dashed #b2ebf2;
+    }
+
+    @media (max-width: 600px) {
+        header { height: 280px; }
+        header h1 { font-size: 2rem; }
+        .timeline-item { flex-direction: column; border-left: none; padding-left: 0; margin-left: 0; }
+        .time { margin-bottom: 5px; background: #eee; display: inline-block; padding: 2px 10px; border-radius: 10px; }
+        .css-illustration { height: 160px; font-size: 80px; }
+        .real-photo-container { height: 200px; }
+    }
+</style>
+</head>
+<body>
+
+<header class="header-bg">
+    <div class="deco-circle" style="width: 100px; height: 100px; top: 20px; left: 20px;"></div>
+    <div class="deco-circle" style="width: 150px; height: 150px; bottom: -30px; right: -30px;"></div>
+    <h1>🐻 熊本質感慢旅</h1>
+    <p>古城・庭園・極致美食 4 日遊</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <div class="real-photo-container">
+            <img src="images/2026-02-04.webp" alt="Sakuramachi Kumamoto">
+        </div>
+        <div class="card-body">
+            <span class="day-badge">Day 1</span>
+            <h2>抵達與放鬆</h2>
+
+            <div class="airport-box">
+                <div class="airport-icon">✈️</div>
+                <div>
+                    <strong>抵達熊本機場</strong><br>
+                    請至國際線航廈外 <strong>1 號站牌</strong> 搭乘機場巴士。<br>
+                    <span class="transport">目的地</span> 櫻町巴士總站 (約 50 分鐘)
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">15:30</div>
+                <div class="content">
+                    <span class="place-name">KOKO HOTEL Premier 辦理入住</span>
+                    <span class="transport">位置</span> 櫻町商場樓上 (巴士下車直達)
+                    <br><span style="font-size: 0.9em; color: #666;">就是照片這棟漂亮的建築！</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=KOKO+HOTEL+Premier+Kumamoto" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">16:30</div>
+                <div class="content">
+                    <span class="place-name">櫻町空中花園 (5F)</span>
+                    <span class="transport">步行</span> 搭飯店電梯至 5 樓
+                    <br>不用出門即可遠眺熊本城。
+                </div>
+            </div>
+
+            <div class="food-section">
+                <span class="food-title">晚餐推薦 (櫻町商場內)</span>
+                <div class="food-item">
+                    <strong>1. 菅乃屋 (馬肉/熟食)</strong> <span class="transport">櫻町 B1</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Suganoya+Sakuramachi" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>2. 敘敘苑 (燒肉)</strong> <span class="transport">櫻町 3F</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jojoen+Sakuramachi" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>3. 利久牛舌 (定食)</strong> <span class="transport">櫻町 3F</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Riku+Sakuramachi" target="_blank" class="nav-btn">導航</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="css-illustration day2-ill">
+            🏯🌸
+            <div class="deco-circle" style="width: 120px; height: 120px; bottom: -20px; left: -20px;"></div>
+        </div>
+        <div class="card-body">
+            <span class="day-badge">Day 2</span>
+            <h2>古城巡禮與神社</h2>
+
+            <div class="timeline-item">
+                <div class="time">10:00</div>
+                <div class="content">
+                    <span class="place-name">熊本城 (天守閣)</span>
+                    <span class="transport">🚊 市電</span> 熊本城・市役所前站
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kumamoto+Castle" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="time">11:30</div>
+                <div class="content">
+                    <span class="place-name">加藤神社</span>
+                    <span class="transport">步行</span> 位於城內，步行約 5 分鐘
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kato+Shrine" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="food-section" style="border-color: #81C784; background: #E8F5E9;">
+                <span class="food-title" style="color:#2E7D32">午餐推薦 (櫻之馬場 城彩苑)</span>
+                <div class="food-item">
+                    <strong>1. 山見茶屋 (阿蘇紅牛丼)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Yamami+Chaya+Josaien" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>2. 櫻道 (精緻定食)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sakuramichi+Josaien" target="_blank" class="nav-btn">導航</a>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="margin-top: 20px;">
+                <div class="time">13:30</div>
+                <div class="content">
+                    <span class="place-name">櫻之馬場 城彩苑 (自由逛街)</span>
+                    <span class="transport">步行</span> 位於熊本城旁
+                    <br>充滿江戶風情的商店街，有許多特色小吃。
+                    <a href="https://www.google.com/maps/search/?api=1&query=Yamami+Chaya+Josaien" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">15:00</div>
+                <div class="content">
+                    <span class="place-name">熊本城稻荷神社</span>
+                    <span class="transport">步行</span> 位於城彩苑旁
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kumamoto+Castle+Inari+Shrine" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">16:30</div>
+                <div class="content">
+                    <span class="place-name">下通商店街 (漫步)</span>
+                    <span class="transport">🚊 市電</span> 通町筋站
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kourantei+Shimotori" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="food-section">
+                <span class="food-title">晚餐推薦 (新市街/下通)</span>
+                <div class="food-item">
+                    <strong>1. 勝烈亭豬排 (米其林推薦)</strong> <span class="transport">🚊 辛島町站</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Katsuretsutei+Shinshigai" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>2. 紅蘭亭 (太平燕)</strong> <span class="transport">🚊 通町筋站</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Kourantei+Shimotori" target="_blank" class="nav-btn">導航</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="css-illustration day3-ill">
+            🍵🌳
+            <div class="deco-circle" style="width: 100px; height: 100px; top: -10px; left: 30px;"></div>
+        </div>
+        <div class="card-body">
+            <span class="day-badge">Day 3</span>
+            <h2>絕美庭園與市區散策</h2>
+
+            <div class="timeline-item">
+                <div class="time">10:30</div>
+                <div class="content">
+                    <span class="place-name">水前寺成趣園</span>
+                    <span class="transport">🚊 市電</span> 水前寺公園站
+                    <a href="https://www.google.com/maps/search/?api=1&query=Suizenji+Jojuen" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="food-section" style="border-color: #81C784; background: #E8F5E9;">
+                <span class="food-title" style="color:#2E7D32">午餐推薦</span>
+                <div class="food-item">
+                    <strong>1. 水前寺 泉里 (景觀餐廳)</strong> <span class="transport">步行</span> 成趣園旁
+                    <a href="https://www.google.com/maps/search/?api=1&query=Izumi+Suizenji" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>2. 壽司三味 (壽司)</strong> <span class="transport">🚊 通町筋站</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sushi+Zanmai+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="margin-top: 20px;">
+                <div class="time">14:00</div>
+                <div class="content">
+                    <span class="place-name">藤崎八旛宮</span>
+                    <span class="transport">🚊 市電</span> 水道町站 (需步行10分)
+                    <a href="https://www.google.com/maps/search/?api=1&query=Fujisaki+Hachimangu" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">15:30</div>
+                <div class="content">
+                    <span class="place-name">熊本市現代美術館 (CAMK)</span>
+                    <span class="transport">🚊 市電</span> 通町筋站
+                    <br>位於市中心，建築本身就很有特色，常有不同主題的展覽。
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.4862423985566!2d130.7033563151829!3d32.80234598096351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f41a8767935f%3A0x6b772099313098e9!2sKOKO%20HOTEL%20Premier%20Kumamoto!5e0!3m2!1szh-TW!2stw!4v1677741366113!5m2!1szh-TW!2stw4" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="food-section">
+                <span class="food-title">晚餐推薦</span>
+                <div class="food-item">
+                    <strong>1. 燒肉 須藤 (專人代烤)</strong> <span class="transport">🚊 通町筋站</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Yakiniku+Sudo+Kumamoto" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>2. 肥後之陣屋 (居酒屋)</strong> <span class="transport">🚊 花畑町站</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Higo+no+Jinya" target="_blank" class="nav-btn">導航</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="css-illustration day4-ill">
+            🚋🛍️
+            <div class="deco-circle" style="width: 90px; height: 90px; bottom: 10px; right: 40px;"></div>
+        </div>
+        <div class="card-body">
+            <span class="day-badge">Day 4</span>
+            <h2>最後採買與歸途</h2>
+
+            <div class="timeline-item">
+                <div class="time">10:00</div>
+                <div class="content">
+                    <span class="place-name">鶴屋百貨 / 櫻町商場</span>
+                    <span class="transport">步行</span> 採買伴手禮
+                    <a href="https://www.google.com/maps/search/?api=1&query=Tsuruya+Department+Store" target="_blank" class="nav-btn">📍 導航</a>
+                </div>
+            </div>
+
+            <div class="food-section" style="border-color: #81C784; background: #E8F5E9;">
+                <span class="food-title" style="color:#2E7D32">最後午餐 (櫻町商場)</span>
+                <div class="food-item">
+                    <strong>1. 五穀 (健康米飯定食)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Gokoku+Sakuramachi" target="_blank" class="nav-btn">導航</a>
+                </div>
+                <div class="food-item">
+                    <strong>2. 博多一風堂 (拉麵)</strong>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ippudo+Sakuramachi" target="_blank" class="nav-btn">導航</a>
+                </div>
+            </div>
+
+            <div class="airport-box" style="margin-top: 20px;">
+                <div class="airport-icon">✈️</div>
+                <div>
+                    <strong>前往機場</strong><br>
+                    請至櫻町巴士總站 <strong>6 號乘車處</strong> 搭乘。<br>
+                    <span class="transport">直達</span> 熊本機場 (無需預約)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <h2>🗺️ 熊本市電路線圖</h2>
+        <p>市區景點主要靠 A 系統 (紅線) 與 B 系統 (藍線)</p>
+        <div class="map-placeholder">
+            🚋💨
+        </div>
+        <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">(可愛示意圖，詳細路線請參考車站資訊)</p>
+    </div>
+
+</div>
+
+</body>
+</html>
